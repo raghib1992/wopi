@@ -21,4 +21,4 @@ nodeGroups:
       nodegroup-type: stateless-workload
       instance-type: spot
     ssh: 
-      publicKeyName: new-key
+      publicKeyName: raghib-key
