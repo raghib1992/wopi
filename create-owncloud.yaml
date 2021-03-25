@@ -18,7 +18,7 @@ spec:
       - image: owncloud
         name: code
         ports:
-        - containerPort: 80
+        - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -28,8 +28,8 @@ metadata:
     app: wopi-owncloud
 spec:
   ports:
-    - port: 80
-      targetPort: 80
+    - port: 8080
+      targetPort: 8080
   selector:
     app: wopi-owncloud
     tier: frontend
