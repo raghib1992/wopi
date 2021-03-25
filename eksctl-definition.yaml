@@ -2,13 +2,13 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: wopi
+  name: wopi-test
   region: ap-south-1
 
 nodeGroups:
-  - name: wopi
+  - name: wopi-test
     desiredCapacity: 1
-    maxSize: 2
+    maxSize: 5
     instancesDistribution:
       instanceTypes: [ "t2.small", "t3.small" ]
       onDemandBaseCapacity: 0
