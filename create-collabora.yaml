@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: wopi-collabora
+  name: wopi-collabora
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wopi-collabora
+  template:
+    metadata:
+      labels:
+        app: wopi-collabora
+    spec:
+      containers:
+      - image: collabora/code
+        name: code
+        env:
+          - name: extra_params
+            value: "--o:ssl.enable=false"
+        ports:
+        - containerPort: 9980
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wopi-collabora
+spec:
+  selector:
+    app: wopi-collabora
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 9980
+      targetPort: 9980
+      nodePort: 30007
